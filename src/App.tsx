@@ -1,6 +1,7 @@
 import React, {ChangeEvent, useState} from 'react';
 import './App.css';
 import GroceryItem from "./Component/GroceryItem";
+
 export interface GroceryItemInterface  {
     itemName: string;
     number: number;
@@ -25,6 +26,10 @@ const App: React.FC =()=> {
         setNumber(0);
         console.log(groceryList)
     }
+    const deleteItem = (name: string):void => {/*let op! Made a mistake*/
+        const newList = groceryList.filter((item)=> item.itemName !== name);
+        setGroceryList(newList);/*let op! Made a mistake*/
+    }
     return (
         <div className="App-container">
             <div className="App-content">
@@ -46,9 +51,9 @@ const App: React.FC =()=> {
                     />
                     <button className="btn" onClick={handleAdd}>Toevoegen</button>
                 </div>
-                <div className="Grocery-list">
+                <div className="Grocery-list-container">
                     {groceryList.map((listItem, key: number)=>{
-                        return <GroceryItem itemToBuy={listItem} key={key}/>
+                        return <GroceryItem itemToBuy={listItem} key={key} deleteItem={deleteItem}/>
                     })}
                 </div>
             </div>

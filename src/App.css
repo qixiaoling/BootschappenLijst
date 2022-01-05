@@ -1,0 +1,139 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+:root {
+    --ff-primary: 'Kanit', sans-serif;
+
+    --fw-reg: 400;
+    --fw-bold: 900;
+
+    --clr-light: #fff;
+    --clr-dark: #000;
+    --clr-tomato: tomato;
+    --clr-green: lightseagreen;
+    --clr-gray: lightgray;
+
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+
+
+    --bs-soft: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    --radius: 0.25rem;
+    --radius-larger: 0.5em;
+
+    --transition: all 0.3s linear;
+}
+
+@media (min-width: 800px) {
+    :root {
+        --fs-h1: 4.5rem;
+        --fs-h2: 3.75rem;
+        --fs-h3: 1.75rem;
+        --fs-body: 1.125rem;
+    }
+}
+
+/****************************General Styles*******************************/
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background: var(--clr-tomato);
+    color: var(--clr-light);
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+}
+img {
+    max-width: 100%;
+}
+strong {
+    font-weight: var(--fw-bold);
+}
+.btn {
+    font-size: var(--fs-body);
+    background-color: var(--clr-gray);
+    color: var(--clr-dark);
+    transition: var(--transition);
+
+}
+.btn:hover {
+  background-color: var(--clr-green);
+    color : var(--clr-light);
+  cursor: pointer;
+}
+/**************************** Typography *******************************/
+
+h1,
+h2,
+h3 {
+    line-height: 1.6;
+    margin: 0;
+}
+h1 {
+    font-size: var(--fs-h1);
+}
+h2 {
+    font-size: var(--fs-h2);
+}
+h3 {
+    font-size: var(--fs-h3);
+}
+/**************************** App-CSS *******************************/
+
+.App-container {
+    width: 100vw;
+    background-color: var(--clr-tomato);
+}
+.App-content {
+    width: 75%;
+    margin: 5rem auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h2 {
+    height: 10%;
+    margin-bottom: 2rem;
+}
+.form-container {
+    height: 15%;
+    width: 100%;
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-areas:
+        "item btn"
+        "number btn";
+    grid-gap: 0;
+    grid-template-columns: 3fr 1fr;
+}
+.Grocery-list {
+    height: 70%;
+}
+.item {
+    grid-area: item;
+    border: 1px solid lightgray;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    padding: 0 1rem;
+}
+.number {
+    grid-area : number;
+    border: 1px solid lightgray;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    padding: 0 1rem;
+}
+.btn {
+    grid-area: btn;
+    border: 1px solid lightgray;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}

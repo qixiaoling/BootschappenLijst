@@ -14,6 +14,7 @@
     --clr-tomato: tomato;
     --clr-green: lightseagreen;
     --clr-gray: lightgray;
+    --clr-gray-darker: #a5a5a5;
 
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
@@ -114,7 +115,8 @@ h2 {
     grid-gap: 0;
     grid-template-columns: 3fr 1fr;
 }
-.Grocery-list {
+.Grocery-list-container {
+    width: 100%;
     height: 70%;
 }
 .item {
@@ -132,8 +134,81 @@ h2 {
     padding: 0 1rem;
 }
 .btn {
+    background-color: var(--clr-green);
     grid-area: btn;
     border: 1px solid lightgray;
     border-top-right-radius: 7px;
     border-bottom-right-radius: 7px;
+}
+.Grocery-list-content {
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    /*grid-template-columns: 1.5fr 1.5fr 1fr;*/
+    grid-template-columns: 1.5fr 1.5fr 0.5fr 0.5fr;
+    grid-gap: 0;
+}
+.check-btn {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: transparent;
+    border:transparent;
+}
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: var(--clr-gray);
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.Grocery-list-content p {
+    font-size: 1.5rem;
+}
+.Grocery-list-content label {
+    font-size: 1.5rem;
+    color : var(--clr-light);
+}
+input[type="checkbox"]::after {
+    content: "\f00c";
+    font-family: 'Font Awesome\ 5 Free';
+    font-weight: 900;
+    font-size: 1rem;
+    color: var(--clr-light);
+    display: none;
+    transition: all 0.3s ease-in-out;
+}
+input[type="checkbox"]:hover {
+    background-color: var(--clr-gray-darker);
+}
+input[type="checkbox"]:checked {
+    background-color: var(--clr-green);
+}
+input[type="checkbox"]:checked::after {/*let op! Made a mistake*/
+    display: block;
+}
+
+.delete-btn {
+    width: 20px;
+    height: 20px;
+    background-color: var(--clr-tomato);
+    color: var(--clr-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
+    border: transparent;
+    font-size: 1.5rem;
+    font-weight: 900;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.delete-btn:hover{
+    color: var(--clr-dark);
 }

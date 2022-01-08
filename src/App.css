@@ -219,3 +219,10 @@ input[type="checkbox"]:checked::after {/*let op! Made a mistake*/
 .delete-btn:hover{
     color: var(--clr-dark);
 }
+.purchase-number {
+    justify-self: center;
+    align-self: center;
+}
+.purchase-name {
+    align-self: center;
+}

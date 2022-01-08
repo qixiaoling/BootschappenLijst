@@ -7,11 +7,11 @@ type Props = {
 const GroceryItem = ({ itemToBuy, deleteItem}: Props) => {
     return (
         <div className="Grocery-list-content">
-                <p>{itemToBuy.itemName}</p>
-                <p>{itemToBuy.number}</p>
+                <p className='purchase-name'>{itemToBuy.itemName}</p>
+                <p className='purchase-number'>{itemToBuy.number}</p>
                 <button className='check-btn'>
                     <input type="checkbox" id="check"/>
-                    <label htmlFor="check">Gedaan</label>
+                    <label htmlFor="check">Klaar</label>
                 </button >
                 <button className='delete-btn' onClick={()=> deleteItem(itemToBuy.itemName)}>
                     <i className="fas fa-times"></i>

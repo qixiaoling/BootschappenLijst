@@ -6,14 +6,10 @@ export interface GroceryItemInterface  {
     itemName: string;
     number: number;
 }
-type listType = {
-    itemName: string;
-    number: number;
-}
 const getLocalStorage = () =>{
-    let hi = localStorage.getItem('localList');
-    if(hi){
-        return JSON.parse(hi);
+    let temp = localStorage.getItem('localList');
+    if(temp){
+        return JSON.parse(temp);
 
     }else {
         return []
@@ -23,7 +19,6 @@ const getLocalStorage = () =>{
 const App: React.FC =()=> {
     const [item, setItem] = useState<string>("");
     const [number, setNumber] = useState<number>(0);
-    // const [list, setList] = useState<listType[]>(getLocalStorage);
     const [groceryList, setGroceryList] = useState<GroceryItemInterface[]>(getLocalStorage);
 
     useEffect(()=>{

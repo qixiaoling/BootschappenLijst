@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, useState, useEffect} from 'react';
 import './App.css';
 import GroceryItem from "./Component/GroceryItem";
 
@@ -6,11 +6,29 @@ export interface GroceryItemInterface  {
     itemName: string;
     number: number;
 }
+type listType = {
+    itemName: string;
+    number: number;
+}
+const getLocalStorage = () =>{
+    let hi = localStorage.getItem('localList');
+    if(hi){
+        return JSON.parse(hi);
+
+    }else {
+        return []
+    }
+}
 
 const App: React.FC =()=> {
     const [item, setItem] = useState<string>("");
     const [number, setNumber] = useState<number>(0);
-    const [groceryList, setGroceryList] = useState<GroceryItemInterface[]>([]);
+    // const [list, setList] = useState<listType[]>(getLocalStorage);
+    const [groceryList, setGroceryList] = useState<GroceryItemInterface[]>(getLocalStorage);
+
+    useEffect(()=>{
+        localStorage.setItem('localList', JSON.stringify(groceryList))
+    },[groceryList]);
 
     const handleChange  = (e: ChangeEvent<HTMLInputElement>): void => {
         if (e.target.name === "item") {
@@ -24,7 +42,9 @@ const App: React.FC =()=> {
         setGroceryList([...groceryList, newItem]);
         setItem("");
         setNumber(0);
-        console.log(groceryList)
+
+
+
     }
     const deleteItem = (name: string):void => {/*let op! Made a mistake*/
         const newList = groceryList.filter((item)=> item.itemName !== name);
